@@ -10,4 +10,5 @@ public class Main {
         MailHandler mailHandler = new MailHandler();
         mailHandler.sendMail();
     }
+
 }

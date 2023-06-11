@@ -20,12 +20,13 @@ public class MailHandler {
         sysProperties.put(MailMetaData.authPerm,"true");
 
           CustomizedMailAuthentication mailAuthenticator = new CustomizedMailAuthentication();
-        Session mailSession =  Session.getInstance(sysProperties);
+        Session mailSession =  Session.getInstance(sysProperties,mailAuthenticator);
 
         MimeMessage mailMessage = new MimeMessage(mailSession);
 
         try {
-            mailMessage.setFrom(MailMetaData.myUserMail);
+            Address sender = new InternetAddress(MailMetaData.myUserMail);
+            mailMessage.setFrom(sender);
             mailMessage.setSubject("this is my java code testing");
             mailMessage.setText("Hey..This is Hrishi");
 
